@@ -1,0 +1,11 @@
+.alert-link {
+    background-color: #fffc;
+    border-color: #cecece;
+    color: #575757;
+}
+.upload-btn {
+    padding: 20px 75px;
+}
+input {
+    display: none;
+}

@@ -1,0 +1,11 @@
+<div class="mt-3 center">
+    <input
+      type="file" (change)="onFileChanged($event)"
+      #fileInput>
+    <button class="btn btn-danger upload-btn" (click)="fileInput.click()">Select File</button>
+</div>
+<ng-template [ngIf]="isFileUploaded">
+  <div class="mt-3 info center">
+    <p class="alert alert-link">Uploaded image: <a href="/{{ filename }}">{{ filename }}</a></p>
+  </div>
+</ng-template>
