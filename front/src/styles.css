@@ -1,5 +1,12 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
 
+body {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: #333;
+    background-image: url('assets/bg.png');
+    background-repeat: repeat;
+    background-color: #f7f7f7;
+}
 .center {
     display: flex;
     justify-content: center;
