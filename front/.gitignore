@@ -29,7 +29,7 @@ yarn-error.log
 .history/*
 
 # Miscellaneous
-/.vscode
+environment.ts
 .editorconfig
 /.angular/cache
 .sass-cache/
