@@ -43,7 +43,8 @@ public class ImagesService {
     }
 
     private void writeToDir(MultipartFile file, String filename) throws IOException {
-        File newFile = new File(Paths.get("").toAbsolutePath().toString() + "/src/main/resources/static/" + filename);
+        // TODO: Improve this, this can't be hardcoded
+        File newFile = new File(Paths.get("").toAbsolutePath().toString() + "/back/src/main/resources/static/" + filename);
         file.transferTo(newFile);
     }
     
