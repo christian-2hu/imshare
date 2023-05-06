@@ -7,6 +7,7 @@ import java.time.Instant;
 import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -18,6 +19,9 @@ public class ImagesService {
 
     @Autowired
     ImagesRepository imagesRepository;
+
+    @Value("${images.path}")
+    private String imageSourceFolder;
 
     private String generateRandomFilename() {
         char[] characters = new char[26];
@@ -43,9 +47,19 @@ public class ImagesService {
     }
 
     private void writeToDir(MultipartFile file, String filename) throws IOException {
-        // TODO: Improve this, this can't be hardcoded
-        File newFile = new File(Paths.get("").toAbsolutePath().toString() + "/back/src/main/resources/static/" + filename);
+        this.createSourceDirIfDoesNotExists();
+        File newFile = new File(Paths.get("").toAbsolutePath().toString() + this.imageSourceFolder + "/" + filename);
         file.transferTo(newFile);
+    }
+
+    private void createSourceDirIfDoesNotExists() {
+        File file = new File(Paths.get("").toAbsolutePath().toString() + this.imageSourceFolder);
+        
+        if(file.exists()) {
+            return;
+        }
+
+        file.mkdir();
     }
     
     public Images saveImage(MultipartFile file) {
