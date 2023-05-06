@@ -6,6 +6,6 @@
 </div>
 <ng-template [ngIf]="isFileUploaded">
   <div class="mt-3 info center">
-    <p class="alert alert-link">Uploaded image: <a href="/{{ filename }}">{{ filename }}</a></p>
+    <p class="alert alert-link">Uploaded image: <a href="/{{ imagesSourceFolder }}/{{ filename }}">{{ filename }}</a></p>
   </div>
 </ng-template>

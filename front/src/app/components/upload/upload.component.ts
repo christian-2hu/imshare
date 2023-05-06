@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { UploadService } from 'src/app/services/upload.service';
 import { Response } from 'src/app/models/response.model';
+import { Environment } from 'src/app/environment/environment';
 @Component({
   selector: 'app-upload',
   templateUrl: './upload.component.html',
@@ -10,6 +11,7 @@ export class UploadComponent {
 
   filename?: string;
   isFileUploaded: boolean = false;
+  imagesSourceFolder: string = Environment.imagesFolder;
 
   constructor(private uploadService: UploadService) { }
 
